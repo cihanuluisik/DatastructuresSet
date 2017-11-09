@@ -70,4 +70,6 @@ public class SetImplTest {
     }
 
 
+    // test null contains return true once null inserted
+
 }
