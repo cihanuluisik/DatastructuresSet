@@ -29,6 +29,13 @@ public class SetImplTest {
         assertThat(set).hasSize(1);
     }
 
+    @Test
+    public void givenAnewSetPuttingNullMustGiveSize1() throws Exception {
+        set.add(null);
+        assertThat(set).hasSize(1);
+    }
+
+
 
     @Test
     public void givenAnewSetWithOneElementContainsMustReturnTrue() throws Exception {
