@@ -6,9 +6,21 @@ import java.util.Set;
 
 public class SetImpl implements Set {
 
+    private Object[] itemArray= new Object[100];
+    private int size;
+
     @Override
     public int size() {
-        return 0;
+        return size;
+    }
+
+    @Override
+    public boolean add(Object o) {
+        int objectsHashcode = o.hashCode();
+        int itemindex = objectsHashcode % itemArray.length;
+        itemArray[itemindex] = o;
+        size++;
+        return true;
     }
 
     @Override
@@ -29,11 +41,6 @@ public class SetImpl implements Set {
     @Override
     public Object[] toArray() {
         return new Object[0];
-    }
-
-    @Override
-    public boolean add(Object o) {
-        return false;
     }
 
     @Override
