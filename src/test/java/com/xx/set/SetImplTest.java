@@ -23,20 +23,20 @@ public class SetImplTest {
 
     @Test
     public void givenAnewSetWithOneElementSizeMustBe1() throws Exception {
-        set.add("Item1");
+        assertThat(set.add("Item1")).isTrue();
         assertThat(set).hasSize(1);
     }
 
     @Test
     public void givenAnewSetPuttingNullMustGiveSize1() throws Exception {
-        set.add(null);
+        assertThat(set.add(null)).isTrue();
         assertThat(set).hasSize(1);
     }
 
     @Test
     public void givenAnewSetWithOneElementContainsMustReturnTrue() throws Exception {
         String item = "Item1";
-        set.add(item);
+        assertThat(set.add(item)).isTrue();
         assertThat(set.contains(item)).isTrue();
     }
 
