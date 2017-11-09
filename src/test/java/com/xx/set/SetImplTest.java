@@ -46,6 +46,28 @@ public class SetImplTest {
     // test remove
 
 
+    @Test
+    public void givenATwoObjectsWithSameHashcodeButDifferentEqualsMustStoreTwoItems() throws Exception {
+        Object item = new Object(){
+            @Override
+            public int hashCode() {
+                return 3;
+            }
+        };
+
+        Object item2 = new Object(){
+            @Override
+            public int hashCode() {
+                return 3;
+            }
+        };
+
+        assertThat(set.add(item)).isTrue();
+        assertThat(set.add(item2)).isTrue();
+        assertThat(set.contains(item)).isTrue();
+        assertThat(set.contains(item2)).isTrue();
+        assertThat(set.size()).isEqualTo(2);
+    }
 
 
 }
