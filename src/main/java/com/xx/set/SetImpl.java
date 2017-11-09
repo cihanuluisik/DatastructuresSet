@@ -23,7 +23,7 @@ public class SetImpl implements Set {
 
     @Override
     public boolean add(Object o) {
-        int itemindex           = o == null ? 0 : (o.hashCode() % itemArray.length-1) + 1;
+        int itemindex = objectIndex(o);
         itemArray[itemindex]    = new Node(o);
         size++;
         return true;
@@ -36,8 +36,12 @@ public class SetImpl implements Set {
 
     @Override
     public boolean contains(Object o) {
-        int itemindex           = o == null ? 0 : (o.hashCode() % itemArray.length-1) + 1;
+        int itemindex = objectIndex(o);
         return  itemArray[itemindex] == null || o.equals(itemArray[itemindex].data);
+    }
+
+    private int objectIndex(Object o) {
+        return o == null ? 0 : (o.hashCode() % itemArray.length-1) + 1;
     }
 
     @Override
