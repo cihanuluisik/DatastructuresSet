@@ -41,4 +41,11 @@ public class SetImplTest {
     }
 
 
+    // test isEmpty
+
+    // test remove
+
+
+
+
 }
