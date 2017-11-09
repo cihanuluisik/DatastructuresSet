@@ -11,6 +11,7 @@ public class SetImpl implements Set {
 
     private class Node {
         private Object data;
+        private Node next;
         Node(Object data) {
             this.data = data;
         }
@@ -24,7 +25,16 @@ public class SetImpl implements Set {
     @Override
     public boolean add(Object o) {
         int itemindex = objectIndex(o);
-        itemArray[itemindex]    = new Node(o);
+        if (itemArray[itemindex] == null ){
+            itemArray[itemindex]    = new Node(o);
+        } else {
+            Node head = itemArray[itemindex];
+            while ( head.next!= null){
+                head = head.next;
+            }
+            head.next = new Node(o);
+        }
+
         size++;
         return true;
     }
@@ -37,7 +47,15 @@ public class SetImpl implements Set {
     @Override
     public boolean contains(Object o) {
         int itemindex = objectIndex(o);
-        return  itemArray[itemindex] == null || o.equals(itemArray[itemindex].data);
+
+        Node head= itemArray[itemindex];
+        if ( head == null ) return false;
+        do {
+            if ( head.data.equals(o)) return true;
+           head = head.next;
+        } while ( head !=null );
+
+        return  false;
     }
 
     private int objectIndex(Object o) {
