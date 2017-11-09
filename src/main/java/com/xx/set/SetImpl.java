@@ -9,7 +9,7 @@ public class SetImpl implements Set {
     private Node[] itemArray= new Node[100];
     private int size;
 
-    class Node {
+    private class Node {
         private Object data;
         Node(Object data) {
             this.data = data;
@@ -36,7 +36,8 @@ public class SetImpl implements Set {
 
     @Override
     public boolean contains(Object o) {
-        return false;
+        int itemindex           = o == null ? 0 : (o.hashCode() % itemArray.length-1) + 1;
+        return  itemArray[itemindex] == null || o.equals(itemArray[itemindex].data);
     }
 
     @Override

@@ -37,7 +37,7 @@ public class SetImplTest {
     public void givenAnewSetWithOneElementContainsMustReturnTrue() throws Exception {
         String item = "Item1";
         set.add(item);
-        assertThat(set).contains(item);
+        assertThat(set.contains(item)).isTrue();
     }
 
 
