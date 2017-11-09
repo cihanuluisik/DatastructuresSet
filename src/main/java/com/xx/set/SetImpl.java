@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.Set;
 
 public class SetImpl implements Set {
+
     @Override
     public int size() {
         return 0;

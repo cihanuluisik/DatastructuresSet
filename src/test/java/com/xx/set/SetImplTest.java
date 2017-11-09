@@ -17,5 +17,13 @@ public class SetImplTest {
     }
 
 
+    @Test
+    public void givenAnewSetWithOneElementSizeMustBe1() throws Exception {
+        Set set = new SetImpl();
+        set.add("Item1");
+        assertThat(set).hasSize(1);
+    }
+
+
 
 }
