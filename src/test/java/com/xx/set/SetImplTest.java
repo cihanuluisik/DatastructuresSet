@@ -30,6 +30,15 @@ public class SetImplTest {
     }
 
 
+    @Test
+    public void givenAnewSetWithOneElementContainsMustReturnTrue() throws Exception {
+        String item = "Item1";
+        set.add(item);
+        assertThat(set).contains(item);
+    }
+
+
+
 
 
 }
