@@ -6,8 +6,15 @@ import java.util.Set;
 
 public class SetImpl implements Set {
 
-    private Object[] itemArray= new Object[100];
+    private Node[] itemArray= new Node[100];
     private int size;
+
+    class Node {
+        private Object data;
+        Node(Object data) {
+            this.data = data;
+        }
+    }
 
     @Override
     public int size() {
@@ -16,9 +23,8 @@ public class SetImpl implements Set {
 
     @Override
     public boolean add(Object o) {
-        int objectsHashcode = o.hashCode();
-        int itemindex = objectsHashcode % itemArray.length;
-        itemArray[itemindex] = o;
+        int itemindex           = o == null ? 0 : (o.hashCode() % itemArray.length-1) + 1;
+        itemArray[itemindex]    = new Node(o);
         size++;
         return true;
     }
@@ -30,7 +36,6 @@ public class SetImpl implements Set {
 
     @Override
     public boolean contains(Object o) {
-
         return false;
     }
 
